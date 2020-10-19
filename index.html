@@ -3,67 +3,63 @@
   <script src="https://www.dropbox.com/static/api/dropbox-datastores-1.0-latest.js"></script>
 </head> 
 <body>
-<div id="header"></div>
+<script>
+  counter = function() {
+    var value = $('#text').val();
 
-<div id="container">
-    <div id="main">
-      <div id="text" contenteditable="true">
-        type text here...
-      </div>
-    </div>
-    <div id="right">
-       <div id="summary" contenteditable="true">
-      type summary here...
-      </div>
-    </div>
-    <div style="clear:both"></div>
+    if (value.length == 0) {
+        $('#wordCount').html(0);
+        $('#totalChars').html(0);
+        $('#charCount').html(0);
+        $('#charCountNoSpace').html(0);
+        return;
+    }
+
+    var regex = /\s+/gi;
+    var wordCount = value.trim().replace(regex, ' ').split(' ').length;
+    var totalChars = value.length;
+    var charCount = value.trim().length;
+    var charCountNoSpace = value.replace(regex, '').length;
+
+    $('#wordCount').html(wordCount);
+    $('#totalChars').html(totalChars);
+    $('#charCount').html(charCount);
+    $('#charCountNoSpace').html(charCountNoSpace);
+};
+
+$(document).ready(function() {
+    $('#count').click(counter);
+    $('#text').change(counter);
+    $('#text').keydown(counter);
+    $('#text').keypress(counter);
+    $('#text').keyup(counter);
+    $('#text').blur(counter);
+    $('#text').focus(counter);
+});
+  
+  </script> 
+  
+     <div id="header">
+<h1 id="Title">
+The <span class="rise">Rise</span> And <span class="fall">Fall</span> Of Camelot
+</h1>
+<img id="icon" src="https://firebasestorage.googleapis.com/v0/b/firescript-577a2.appspot.com/o/imgs%2Fapp%2FWriteMachine%2F_HAaLQbotS.png?alt=media&token=188da017-c111-430c-9498-08f38738f156">
 </div>
+<div id="body">
+<div id="content">
 
-<div id="footer">
-  
 
-
-    <center>
-        <button id="writeButton">Click to create <code>hello.txt</code> in Dropbox.</button>
-    </center>
- 
-    <script>
-        var client = new Dropbox.Client({ key: '6pp610jlx2ouf2d' });
- 
-        function doHelloWorld() {
-            client.writeFile('hello.txt', 'Hello, World!', function (error) {
-                if (error) {
-                    alert('Error: ' + error);
-                } else {
-                    alert('File written successfully!');
-                }
-            });
-        }
- 
-        // Try to complete OAuth flow.
-        client.authenticate({ interactive: false }, function (error, client) {
-            if (error) {
-                alert('Error: ' + error);
-            }
-        });
- 
-        if (client.isAuthenticated()) {
-            doHelloWorld();
-        }
- 
-        document.getElementById('writeButton').onclick = function () {
-            client.authenticate(function (error, client) {
-                if (error) {
-                    alert('Error: ' + error);
-                } else {
-                    doHelloWorld();
-                }
-            });
-        }
-    </script>
-
+        <div id="border">
+            <textarea id='text'></textarea>
+        </div>
+     
+        <div id="result">
+            WC: <span id="wordCount">0</span><br/>
+            
+</a>
+</div>
+</div>
   
   
   
-  </div>
 </body>
