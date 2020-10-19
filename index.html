@@ -1,10 +1,7 @@
 <head>
   <link rel="stylesheet" type="text/css" href="css/styles.css">
-  <script src="https://www.dropbox.com/static/api/dropbox-datastores-1.0-latest.js"></script>
-</head> 
-<body>
-<script>
-  counter = function() {
+  <script>
+    counter = function() {
     var value = $('#text').val();
 
     if (value.length == 0) {
@@ -37,29 +34,24 @@ $(document).ready(function() {
     $('#text').focus(counter);
 });
   
-  </script> 
+  </script>
+</head> 
+<body>
   
-     <div id="header">
-<h1 id="Title">
-The <span class="rise">Rise</span> And <span class="fall">Fall</span> Of Camelot
-</h1>
-<img id="icon" src="https://firebasestorage.googleapis.com/v0/b/firescript-577a2.appspot.com/o/imgs%2Fapp%2FWriteMachine%2F_HAaLQbotS.png?alt=media&token=188da017-c111-430c-9498-08f38738f156">
+  
+ <div id="content">
+   <div id="result">
+            WC: <span id="wordCount">0</span><br/>
+
 </div>
-<div id="body">
-<div id="content">
 
-
+<img id="icon" src="https://firebasestorage.googleapis.com/v0/b/firescript-577a2.appspot.com/o/imgs%2Fapp%2FWriteMachine%2F_HAaLQbotS.png?alt=media&token=188da017-c111-430c-9498-08f38738f156">
         <div id="border">
+        
             <textarea id='text'></textarea>
         </div>
      
-        <div id="result">
-            WC: <span id="wordCount">0</span><br/>
-            
-</a>
+     
 </div>
-</div>
-  
-  
   
 </body>
