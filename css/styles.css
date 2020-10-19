@@ -1,5 +1,5 @@
 #border {
-    border: 1px solid red;
+   background-color: white;
     height: 60vh;
     width: 100%;
 }
@@ -31,22 +31,9 @@ margin-top: 7%;
 
 
 
-#Title {
- font-family: Hoefler Text, Baskerville Old Face, Garamond, Times New Roman, serif; font-size: 30px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px;
-color: white;
- float: right;
- padding-right: 15vw;
-  padding-left: 15vw;
-}
-
-.fall {
-    color: #C1272F;
-}
-
 #content, textarea {
   
- margin: 0 auto;
- width: 40em;
+
  max-width: 100%;
  line-height: 1.5;
  font-size: 16px;
@@ -54,21 +41,20 @@ color: white;
  color: #202B33; 
 }
 
-@media screen and (max-width:760px){
-       #content{ 
-      width: 30em;
-        font-size: 14px;
-    }
-    
-    @media screen and (max-width: 560px){
-       #content{ 
-        width: 28em;
-        font-size: 14px;
-    }
-    
-     @media screen and (max-width: 460px){
-       #content{ 
-        width: 22em;
-        font-size: 12px;
-    }
+#content{
+  
+  background-color: #141414; 
+  
+}
+
+#result {
+  margin-left: 15px;
+  color: white;
+  
+}
+
+textarea {
+  
+margin: 20px;
+  
 }
