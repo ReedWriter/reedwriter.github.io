@@ -1,58 +1,454 @@
 <head>
-  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <link rel="stylesheet" type="text/css" href="css/styles.css" />
+  <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script>
-    counter = function() {
-    var value = $('#text').val();
+    function copyText() {
+      /* Get the text field */
+      var copyText = document.getElementById('text');
 
-    if (value.length == 0) {
-        $('#wordCount').html(0);
-        $('#totalChars').html(0);
-        $('#charCount').html(0);
-        $('#charCountNoSpace').html(0);
-        return;
+      /* Select the text field */
+      copyText.select();
+      copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+      /* Copy the text inside the text field */
+      document.execCommand('copy');
+
+      /* Alert the copied text */
+      //alert('Copied the text: ' + copyText.value);
     }
 
-    var regex = /\s+/gi;
-    var wordCount = value.trim().replace(regex, ' ').split(' ').length;
-    var totalChars = value.length;
-    var charCount = value.trim().length;
-    var charCountNoSpace = value.replace(regex, '').length;
+    counter = function () {
+      var value = $('#text').val();
 
-    $('#wordCount').html(wordCount);
-    $('#totalChars').html(totalChars);
-    $('#charCount').html(charCount);
-    $('#charCountNoSpace').html(charCountNoSpace);
-};
+      if (value.length == 0) {
+        $('#wordCount').html(0);
+        $('#GoalIcon').html('🔴');
+        return;
+      }
 
-$(document).ready(function() {
-    $('#count').click(counter);
-    $('#text').change(counter);
-    $('#text').keydown(counter);
-    $('#text').keypress(counter);
-    $('#text').keyup(counter);
-    $('#text').blur(counter);
-    $('#text').focus(counter);
-});
-  
+      var regex = /\s+/gi;
+      var wordCount = value.trim().replace(regex, ' ').split(' ').length;
+
+      var goal = $('#wordCountGoal').text();
+
+      $('#wordCount').html(wordCount);
+
+      console.log(wordCount <= 0);
+
+      if (wordCount >= goal) {
+        $('#GoalIcon').html('🟢');
+      } else {
+        $('#GoalIcon').html('🟡');
+      }
+    };
+
+    $(document).ready(function () {
+      $('#count').click(counter);
+      $('#text').change(counter);
+      $('#text').keydown(counter);
+      $('#text').keypress(counter);
+      $('#text').keyup(counter);
+      $('#text').blur(counter);
+      $('#text').focus(counter);
+
+      var now = new Date();
+      var start = new Date(now.getFullYear(), 0, 0);
+      var diff = now - start;
+      var oneDay = 1000 * 60 * 60 * 24;
+      var day = Math.floor(diff / oneDay);
+
+      let wc = [
+        0,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        103,
+        105,
+        107,
+        109,
+        111,
+        113,
+        115,
+        117,
+        119,
+        121,
+        123,
+        125,
+        127,
+        129,
+        131,
+        133,
+        135,
+        137,
+        139,
+        141,
+        143,
+        145,
+        147,
+        149,
+        151,
+        153,
+        155,
+        157,
+        159,
+        161,
+        163,
+        165,
+        167,
+        169,
+        171,
+        173,
+        175,
+        177,
+        179,
+        181,
+        183,
+        185,
+        187,
+        189,
+        191,
+        193,
+        195,
+        197,
+        199,
+        201,
+        204,
+        207,
+        210,
+        213,
+        216,
+        219,
+        222,
+        225,
+        228,
+        231,
+        234,
+        237,
+        240,
+        243,
+        246,
+        249,
+        252,
+        255,
+        258,
+        261,
+        264,
+        267,
+        270,
+        273,
+        276,
+        279,
+        282,
+        285,
+        288,
+        291,
+        294,
+        297,
+        300,
+        303,
+        307,
+        311,
+        315,
+        319,
+        323,
+        327,
+        331,
+        335,
+        339,
+        343,
+        347,
+        351,
+        355,
+        359,
+        363,
+        367,
+        371,
+        375,
+        379,
+        383,
+        387,
+        391,
+        395,
+        399,
+        403,
+        408,
+        413,
+        418,
+        423,
+        428,
+        433,
+        438,
+        443,
+        448,
+        453,
+        458,
+        463,
+        468,
+        473,
+        478,
+        483,
+        488,
+        493,
+        498,
+        503,
+        509,
+        515,
+        521,
+        527,
+        533,
+        539,
+        545,
+        551,
+        557,
+        563,
+        569,
+        575,
+        581,
+        587,
+        593,
+        599,
+        605,
+        612,
+        619,
+        626,
+        633,
+        640,
+        647,
+        654,
+        661,
+        668,
+        675,
+        682,
+        689,
+        696,
+        703,
+        711,
+        719,
+        727,
+        735,
+        743,
+        751,
+        759,
+        767,
+        775,
+        783,
+        791,
+        799,
+        807,
+        816,
+        825,
+        834,
+        843,
+        852,
+        861,
+        870,
+        879,
+        888,
+        897,
+        906,
+        916,
+        926,
+        936,
+        946,
+        956,
+        966,
+        976,
+        986,
+        996,
+        1006,
+        1017,
+        1028,
+        1039,
+        1050,
+        1061,
+        1072,
+        1083,
+        1094,
+        1105,
+        1117,
+        1129,
+        1141,
+        1153,
+        1165,
+        1177,
+        1189,
+        1201,
+        1214,
+        1227,
+        1240,
+        1253,
+        1266,
+        1279,
+        1292,
+        1305,
+        1319,
+        1333,
+        1347,
+        1361,
+        1375,
+        1389,
+        1403,
+        1418,
+        1433,
+        1448,
+        1463,
+        1478,
+        1493,
+        1508,
+        1524,
+        1540,
+        1556,
+        1572,
+        1588,
+        1604,
+        1621,
+        1638,
+        1655,
+        1672,
+        1689,
+        1706,
+        1724,
+        1742,
+        1760,
+        1778,
+        1796,
+        1814,
+        1833,
+        1852,
+        1871,
+        1890,
+        1909,
+        1929,
+        1949,
+        1969,
+        1989,
+        2009,
+        2030,
+        2051,
+        2072,
+        2093,
+        2114,
+        2136,
+        2158,
+        2180,
+        2202,
+        2225,
+        2248,
+        2271,
+        2294,
+        2317,
+        2341,
+        2365,
+        2389,
+        2413,
+        2438,
+        2463,
+        2488,
+        2513,
+        2539,
+        2565,
+        2591,
+        2617,
+        2644,
+        2671,
+        2698,
+        2725,
+        2753,
+        2781,
+        2809,
+        2838,
+        2867,
+        2896,
+        2925,
+        2955,
+        2985,
+        3015,
+        3046,
+        3077,
+        3108,
+        3140,
+        3172,
+        3204,
+        3237,
+        3270,
+        3303,
+        3337,
+        3371,
+        3405,
+        3440,
+      ];
+
+      $('#wordCountGoal').html(wc[day]);
+    });
   </script>
-</head> 
+</head>
 <body>
-  
-  
- <div id="content">
-   <div id="result">
-            WC: <span id="wordCount">0</span><br/>
+  <div id="header">
+    <div id="result">
+      <span id="GoalIcon">🔴</span> Words Written:
+      <span id="wordCount">0</span> / <span id="wordCountGoal"> </span><br />
+    </div>
 
-</div>
+    <img
+      id="icon"
+      src="https://firebasestorage.googleapis.com/v0/b/firescript-577a2.appspot.com/o/imgs%2Fapp%2FWriteMachine%2F_HAaLQbotS.png?alt=media&token=188da017-c111-430c-9498-08f38738f156"
+    />
+  </div>
 
-<img id="icon" src="https://firebasestorage.googleapis.com/v0/b/firescript-577a2.appspot.com/o/imgs%2Fapp%2FWriteMachine%2F_HAaLQbotS.png?alt=media&token=188da017-c111-430c-9498-08f38738f156">
-        <div id="border">
-        
-            <textarea id='text'></textarea>
-        </div>
-     
-     
-</div>
-  
+  <div class="wrapper" id="content">
+    <textarea autofocus id="text"></textarea>
+  </div>
+  <div id="footer">
+    <p onclick="copyText()" class="copylink">Copy Text</p>
+  </div>
 </body>
