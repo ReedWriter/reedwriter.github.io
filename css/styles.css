@@ -13,7 +13,7 @@ textarea {
 
 #header {
   background-color: #141414;
-  height: 15%;
+  height: calc(7vh + 80px);
   position: sticky;
   top: 0;
 }
