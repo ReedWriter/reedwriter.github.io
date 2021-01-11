@@ -1,56 +1,57 @@
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" type="text/css" href="css/styles.css" />
   <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script>
     function copyText() {
       /* Get the text field */
-      var copyText = document.getElementById('text');
+      var copyText = document.getElementById("text");
 
       /* Select the text field */
       copyText.select();
       copyText.setSelectionRange(0, 99999); /* For mobile devices */
 
       /* Copy the text inside the text field */
-      document.execCommand('copy');
+      document.execCommand("copy");
 
       /* Alert the copied text */
       //alert('Copied the text: ' + copyText.value);
     }
 
     counter = function () {
-      var value = $('#text').val();
+      var value = $("#text").val();
 
       if (value.length == 0) {
-        $('#wordCount').html(0);
-        $('#GoalIcon').html('🔴');
+        $("#wordCount").html(0);
+        $("#GoalIcon").html("🔴");
         return;
       }
 
       var regex = /\s+/gi;
-      var wordCount = value.trim().replace(regex, ' ').split(' ').length;
+      var wordCount = value.trim().replace(regex, " ").split(" ").length;
 
-      var goal = $('#wordCountGoal').text();
+      var goal = $("#wordCountGoal").text();
 
-      $('#wordCount').html(wordCount);
+      $("#wordCount").html(wordCount);
 
       console.log(wordCount <= 0);
 
       if (wordCount >= goal) {
-        $('#GoalIcon').html('🟢');
+        $("#GoalIcon").html("🟢");
       } else {
-        $('#GoalIcon').html('🟡');
+        $("#GoalIcon").html("🟡");
       }
     };
 
     $(document).ready(function () {
-      $('#count').click(counter);
-      $('#text').change(counter);
-      $('#text').keydown(counter);
-      $('#text').keypress(counter);
-      $('#text').keyup(counter);
-      $('#text').blur(counter);
-      $('#text').focus(counter);
+      $("#count").click(counter);
+      $("#text").change(counter);
+      $("#text").keydown(counter);
+      $("#text").keypress(counter);
+      $("#text").keyup(counter);
+      $("#text").blur(counter);
+      $("#text").focus(counter);
 
       var now = new Date();
       var start = new Date(now.getFullYear(), 0, 0);
@@ -428,7 +429,7 @@
         3440,
       ];
 
-      $('#wordCountGoal').html(wc[day]);
+      $("#wordCountGoal").html(wc[day]);
     });
   </script>
 </head>
