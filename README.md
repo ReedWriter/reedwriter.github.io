@@ -1,2 +1,2 @@
 # reedwriter.github.io
-Web App to interface with Dropbox .txt files
+Daily Writing Application that slowly ramps up your word count to ease you into creating a writing habit
